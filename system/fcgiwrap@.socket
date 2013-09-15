@@ -1,0 +1,10 @@
+[Unit]
+Description=fcgiwrap Socket for %i
+
+[Socket]
+ListenStream=/run/fcgiwrap/%i.socket
+SocketMode=0660
+ExecStartPost=/usr/bin/chown cgi-%i:http /run/fcgiwrap/%i.socket
+
+[Install]
+WantedBy=sockets.target

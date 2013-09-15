@@ -1,0 +1,19 @@
+[Unit]
+Description=FCGI service for %i
+After=nss-user-lookup.target
+
+[Service]
+PrivateTmp=true
+NoNewPrivileges=true
+;DeviceAllow=closed
+PrivateNetwork=true
+
+InaccessibleDirectories=/home /srv/vmail
+ReadOnlyDirectories=/usr /etc
+
+ExecStart=/usr/bin/fcgiwrap
+User=cgi-%i
+Group=cgi-%i
+
+[Install]
+Also=fcgiwrap.socket

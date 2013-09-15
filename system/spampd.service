@@ -1,0 +1,18 @@
+[Unit]
+Description=Spamassassin Proxy Daemon
+After=network.target
+
+[Service]
+User=spampd
+Group=spampd
+PrivateTmp=true
+NoNewPrivileges=true
+;DeviceAllow=closed
+
+InaccessibleDirectories=/home/pierre /home/backup /srv
+ReadOnlyDirectories=/usr /etc
+
+ExecStart=/usr/bin/spampd --port=10025 --relayhost=127.0.0.1:10026 --a --rh --user spampd --group spampd --pid=/home/spampd/spampd.pid --nodetach --children=5 --maxsize=10240
+
+[Install]
+WantedBy=multi-user.target

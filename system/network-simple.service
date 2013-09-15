@@ -1,0 +1,30 @@
+[Unit]
+Description=Network Connectivity
+Wants=network.target
+Before=network.target
+BindsTo=sys-subsystem-net-devices-lan0.device
+After=sys-subsystem-net-devices-lan0.device
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+
+ExecStart=/usr/bin/ip link set dev lan0 up
+ExecStart=/usr/bin/ip addr add 144.76.107.12/27 brd 144.76.107.31 dev lan0
+ExecStart=/usr/bin/ip addr add 144.76.107.28/27 brd 144.76.107.31 dev lan0
+ExecStart=/usr/bin/ip route add default via 144.76.107.1 dev lan0
+ExecStart=/usr/bin/ip -6 addr add 2a01:4f8:192:520b::2/128 nodad dev lan0
+ExecStart=/usr/bin/ip -6 addr add 2a01:4f8:192:520b::28/128 nodad preferred_lft 0 dev lan0
+ExecStart=/usr/bin/ip -6 route replace 2a01:4f8:192:520b::/64 dev lo
+ExecStart=/usr/bin/ip -6 route replace default via fe80::1 dev lan0
+ExecStart=/bin/bash -c 'echo "nameserver 127.0.0.1" > /etc/resolv.conf'
+;ExecStart=/bin/bash -c 'echo -e "nameserver 213.133.98.98\nnameserver 213.133.99.99\nnameserver 213.133.100.100\n" > /etc/resolv.conf'
+;ExecStart=/bin/bash -c 'echo -e "nameserver 2a01:4f8:0:a0a1::add:1010\nnameserver 2a01:4f8:0:a102::add:9999\nnameserver 2a01:4f8:0:a111::add:9898\n" >> /etc/resolv.conf'
+
+ExecStop=/bin/bash -c 'echo > /etc/resolv.conf'
+ExecStop=/usr/bin/ip route flush dev lan0
+ExecStop=/usr/bin/ip addr flush dev lan0
+ExecStop=/usr/bin/ip link set dev lan0 down
+
+[Install]
+WantedBy=multi-user.target
