@@ -2,17 +2,19 @@
 Description=PHP-FPM service for %i
 After=syslog.target network.target
 After=mysqld.service postfix.service
+Requires=php-fpm@.socket
 
 [Service]
 Type=notify
 
 PrivateTmp=true
 NoNewPrivileges=true
-;DeviceAllow=closed
 ;PrivateNetwork=true
+PrivateDevices=true
 
-InaccessibleDirectories=/home /srv/vmail
-ReadOnlyDirectories=/usr /etc
+ProtectHome=true
+ProtectSystem=full
+InaccessibleDirectories=/srv/vmail /var/lib/mysql
 
 User=php-%i
 Group=php-%i

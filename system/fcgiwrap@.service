@@ -1,19 +1,21 @@
 [Unit]
 Description=FCGI service for %i
 After=nss-user-lookup.target
+Requires=fcgiwrap@.socket
 
 [Service]
 PrivateTmp=true
 NoNewPrivileges=true
-;DeviceAllow=closed
 PrivateNetwork=true
+PrivateDevices=true
 
-InaccessibleDirectories=/home /srv/vmail
-ReadOnlyDirectories=/usr /etc
+ProtectHome=true
+ProtectSystem=full
+InaccessibleDirectories=/srv/vmail /var/lib/mysql
 
 ExecStart=/usr/bin/fcgiwrap
 User=cgi-%i
 Group=cgi-%i
 
 [Install]
-Also=fcgiwrap.socket
+WantedBy=multi-user.target

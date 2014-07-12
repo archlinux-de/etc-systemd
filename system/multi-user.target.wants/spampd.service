@@ -1,1 +1,1 @@
-/etc/systemd/system/spampd.service
+/usr/lib/systemd/system/spampd.service

@@ -4,7 +4,8 @@ Description=fcgiwrap Socket for %i
 [Socket]
 ListenStream=/run/fcgiwrap/%i.socket
 SocketMode=0660
-ExecStartPost=/usr/bin/chown cgi-%i:http /run/fcgiwrap/%i.socket
+SocketUser=cgi-%i
+SocketGroup=http
 
 [Install]
 WantedBy=sockets.target
