@@ -19,7 +19,7 @@ InaccessibleDirectories=/srv/vmail /var/lib/mysql
 User=php-%i
 Group=php-%i
 Environment="FPM_SOCKETS=/run/php-fpm/%i.socket=3"
-ExecStart=/usr/bin/php-fpm --nodaemonize --fpm-config /etc/php/fpm.d/%i.conf
+ExecStart=/usr/bin/php-fpm --nodaemonize --fpm-config /etc/php/php-fpm.d/%i.conf
 ExecReload=/bin/kill -USR2 $MAINPID
 
 [Install]
