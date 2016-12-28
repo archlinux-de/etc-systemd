@@ -1,0 +1,9 @@
+[Unit]
+Description=spamassassin update
+
+[Service]
+User=spamd
+Group=spamd
+Type=oneshot
+ExecStart=-sa-update
+ExecStart=-sa-compile

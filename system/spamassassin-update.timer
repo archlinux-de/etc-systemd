@@ -1,0 +1,9 @@
+[Unit]
+Description=daily spamassassin update
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target
