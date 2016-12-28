@@ -5,5 +5,5 @@ Description=spamassassin update
 User=spamd
 Group=spamd
 Type=oneshot
-ExecStart=-sa-update
-ExecStart=-sa-compile
+ExecStart=-/usr/bin/vendor_perl/sa-update -v --allowplugins
+ExecStart=-/usr/bin/vendor_perl/sa-compile
