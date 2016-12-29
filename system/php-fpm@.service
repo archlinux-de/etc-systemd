@@ -9,8 +9,10 @@ Type=notify
 
 PrivateTmp=true
 NoNewPrivileges=true
-;PrivateNetwork=true
+PrivateNetwork=true
 PrivateDevices=true
+ProtectKernelTunables=true
+ProtectControlGroups=true
 
 ProtectHome=true
 ProtectSystem=full
