@@ -1,0 +1,15 @@
+[Socket]
+ListenStream=144.76.107.12:80
+ListenStream=144.76.107.12:443
+ListenStream=[2a01:4f8:192:520b::2]:80
+ListenStream=[2a01:4f8:192:520b::2]:443
+ListenStream=144.76.107.28:80
+ListenStream=144.76.107.28:443
+ListenStream=[2a01:4f8:192:520b::28]:80
+ListenStream=[2a01:4f8:192:520b::28]:443
+BindIPv6Only=ipv6-only
+FreeBind=true
+KeepAlive=true
+
+[Install]
+WantedBy=sockets.target

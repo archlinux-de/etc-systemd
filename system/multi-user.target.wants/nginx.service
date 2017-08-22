@@ -1,1 +1,1 @@
-/usr/lib/systemd/system/nginx.service
+/etc/systemd/system/nginx.service
