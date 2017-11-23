@@ -1,7 +1,7 @@
 [Unit]
 Description=PHP-FPM service for %i
 After=syslog.target network.target
-After=mysqld.service postfix.service
+After=mysqld.service
 Requires=php-fpm@.socket
 
 [Service]
@@ -16,7 +16,7 @@ ProtectControlGroups=true
 
 ProtectHome=true
 ProtectSystem=full
-InaccessibleDirectories=/srv/vmail /var/lib/mysql
+InaccessibleDirectories=/var/lib/mysql
 
 User=php-%i
 Group=php-%i

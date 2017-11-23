@@ -11,12 +11,12 @@ PrivateTmp=true
 NoNewPrivileges=true
 ProtectHome=true
 ProtectSystem=full
-InaccessibleDirectories=/srv/vmail /var/lib/mysql
+InaccessibleDirectories=/var/lib/mysql
 
-Environment=NGINX=3:4:5:6:7:8:9:10;
+Environment=NGINX=3:4;
 ExecStartPre=-/usr/bin/host -R 5 ocsp.int-x3.letsencrypt.org
 ;ExecStartPre=/usr/bin/nginx -t
-ExecStart=/usr/bin/nginx -g 'error_log stderr;'
+ExecStart=/usr/bin/nginx -g 'error_log stderr alert;'
 ExecReload=/usr/bin/kill -s HUP $MAINPID
 ExecStop=/usr/bin/kill -s QUIT $MAINPID
 RestartSec=2
