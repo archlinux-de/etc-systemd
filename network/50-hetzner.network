@@ -1,15 +1,11 @@
-### Hetzner Online GmbH - installimage
-# device: eth0
 [Match]
-MACAddress=90:1b:0e:da:c7:d3
+MACAddress=90:1b:0e:fe:13:4a
 
 [Network]
-Address=2a01:4f8:172:2ed9::2/64
+Address=2a01:4f8:150:7086::2/64
+Gateway=176.9.50.129
 Gateway=fe80::1
 
-Address=138.201.131.154/26
-Gateway=138.201.131.129
-
-[Route]
-Destination=138.201.131.128/26
-Gateway=138.201.131.129
+[Address]
+Address=176.9.50.155/32
+Peer=176.9.50.129/32
