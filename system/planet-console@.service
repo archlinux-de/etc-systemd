@@ -1,0 +1,22 @@
+[Service]
+Type=oneshot
+
+PrivateTmp=true
+NoNewPrivileges=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+
+ProtectHome=true
+ProtectSystem=full
+InaccessibleDirectories=/var/lib/mysql
+
+User=php-planet
+Group=php-planet
+
+WorkingDirectory=/srv/http/vhosts/planet.archlinux.de
+ExecStart=/srv/http/vhosts/planet.archlinux.de/bin/console %i
+
+[Install]
+WantedBy=multi-user.target
