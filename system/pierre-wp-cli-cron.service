@@ -1,0 +1,22 @@
+[Service]
+Type=oneshot
+
+PrivateTmp=true
+NoNewPrivileges=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+
+ProtectHome=true
+ProtectSystem=full
+InaccessibleDirectories=/var/lib/mysql
+
+User=php-pierre
+Group=php-pierre
+
+WorkingDirectory=/srv/http/vhosts/pierre-schmitz.com
+ExecStart=/srv/http/vhosts/pierre-schmitz.com/wp-cli cron event run --due-now --quiet
+
+[Install]
+WantedBy=multi-user.target
