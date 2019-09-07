@@ -1,0 +1,22 @@
+[Service]
+Type=oneshot
+
+PrivateTmp=true
+NoNewPrivileges=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+
+ProtectHome=true
+ProtectSystem=full
+InaccessibleDirectories=/var/lib/mysql
+
+User=php-wiki
+Group=php-wiki
+
+WorkingDirectory=/srv/http/vhosts/wiki.archlinux.de
+ExecStart=/usr/bin/php /srv/http/vhosts/wiki.archlinux.de/maintenance/runJobs.php -q
+
+[Install]
+WantedBy=multi-user.target
