@@ -1,0 +1,7 @@
+[Timer]
+OnUnitActiveSec=3min
+OnBootSec=3min
+RandomizedDelaySec=1min
+
+[Install]
+WantedBy=timers.target
