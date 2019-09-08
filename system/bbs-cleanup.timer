@@ -1,0 +1,7 @@
+[Timer]
+OnCalendar=weekly
+Persistent=true
+RandomizedDelaySec=15min
+
+[Install]
+WantedBy=timers.target
