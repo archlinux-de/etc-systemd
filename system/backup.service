@@ -1,0 +1,8 @@
+[Service]
+Type=oneshot
+
+WorkingDirectory=/root/duplicity
+ExecStart=/root/duplicity/backup
+
+[Install]
+WantedBy=multi-user.target
