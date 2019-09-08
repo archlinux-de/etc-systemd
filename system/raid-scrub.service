@@ -1,0 +1,8 @@
+[Service]
+Type=oneshot
+
+ExecStart=/usr/bin/bash -c "echo check >> /sys/block/md0/md/sync_action"
+ExecStart=/usr/bin/bash -c "echo check >> /sys/block/md1/md/sync_action"
+
+[Install]
+WantedBy=multi-user.target
