@@ -1,6 +1,6 @@
 [Timer]
-OnUnitActiveSec=2min
-OnBootSec=2min
+OnUnitActiveSec=5min
+OnBootSec=5min
 RandomizedDelaySec=1min
 
 [Install]

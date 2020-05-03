@@ -3,6 +3,7 @@ Type=oneshot
 
 WorkingDirectory=/root/duplicity
 ExecStart=/root/duplicity/backup
+ExecStart=/root/duplicity/backup-cleanup
 
 [Install]
 WantedBy=multi-user.target
