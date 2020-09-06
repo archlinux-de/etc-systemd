@@ -15,8 +15,8 @@ InaccessibleDirectories=/var/lib/mysql
 User=php-planet
 Group=php-planet
 
-WorkingDirectory=/srv/http/vhosts/planet.archlinux.de
-ExecStart=/srv/http/vhosts/planet.archlinux.de/bin/console %i
+WorkingDirectory=/srv/http/vhosts/planet.archlinux.de/api
+ExecStart=/srv/http/vhosts/planet.archlinux.de/api/bin/console %i
 
 [Install]
 WantedBy=multi-user.target

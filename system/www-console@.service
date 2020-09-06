@@ -15,8 +15,8 @@ InaccessibleDirectories=/var/lib/mysql
 User=php-www
 Group=php-www
 
-WorkingDirectory=/srv/http/vhosts/www.archlinux.de
-ExecStart=/srv/http/vhosts/www.archlinux.de/bin/console %i
+WorkingDirectory=/srv/http/vhosts/www.archlinux.de/api
+ExecStart=/srv/http/vhosts/www.archlinux.de/api/bin/console %i
 
 [Install]
 WantedBy=multi-user.target
