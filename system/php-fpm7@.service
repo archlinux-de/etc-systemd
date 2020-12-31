@@ -1,0 +1,32 @@
+[Unit]
+Description=PHP-FPM7 service for %i
+After=syslog.target network.target
+After=mysqld.service
+Requires=php-fpm7@.socket
+
+[Service]
+Type=notify
+
+PrivateTmp=true
+NoNewPrivileges=true
+PrivateNetwork=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_NETLINK AF_UNIX
+RestrictNamespaces=true
+
+ProtectHome=true
+ProtectSystem=full
+InaccessibleDirectories=/var/lib/mysql
+
+User=php-%i
+Group=php-%i
+Environment="FPM_SOCKETS=/run/php-fpm7/%i.socket=3"
+Environment="FPM_PARAMS="
+ExecStart=/usr/bin/php-fpm7 --nodaemonize --fpm-config /etc/php7/php-fpm.d/%i.conf $FPM_PARAMS
+ExecReload=/bin/kill -USR2 $MAINPID
+
+[Install]
+WantedBy=multi-user.target
