@@ -16,7 +16,7 @@ User=php-wiki
 Group=php-wiki
 
 WorkingDirectory=/srv/http/vhosts/wiki.archlinux.de
-ExecStart=/usr/bin/php7 /srv/http/vhosts/wiki.archlinux.de/maintenance/runJobs.php -q
+ExecStart=/usr/bin/php /srv/http/vhosts/wiki.archlinux.de/maintenance/runJobs.php -q
 
 [Install]
 WantedBy=multi-user.target
