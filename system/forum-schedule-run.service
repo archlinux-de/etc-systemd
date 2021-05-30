@@ -1,0 +1,22 @@
+[Service]
+Type=oneshot
+
+PrivateTmp=true
+NoNewPrivileges=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+
+ProtectHome=true
+ProtectSystem=full
+InaccessibleDirectories=/var/lib/mysql
+
+User=php-forum
+Group=php-forum
+
+WorkingDirectory=/srv/http/vhosts/forum.archlinux.de
+ExecStart=/usr/bin/php /srv/http/vhosts/forum.archlinux.de/flarum schedule:run -q
+
+[Install]
+WantedBy=multi-user.target
