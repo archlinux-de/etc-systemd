@@ -1,7 +1,5 @@
 [Timer]
-OnUnitActiveSec=12min
-OnBootSec=12min
-RandomizedDelaySec=3min
+OnCalendar=*-*-* *:*:00
 
 [Install]
 WantedBy=timers.target
