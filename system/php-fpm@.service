@@ -1,7 +1,7 @@
 [Unit]
 Description=PHP-FPM service for %i
 After=syslog.target network.target
-After=mysqld.service
+After=mariadb.service
 Requires=php-fpm@.socket
 
 [Service]
