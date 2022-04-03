@@ -14,8 +14,8 @@ ProtectSystem=full
 InaccessibleDirectories=/var/lib/mysql
 
 Environment=NGINX=3:4;
-ExecStartPre=-/usr/bin/host -R 5 r3.o.lencr.org
-;ExecStartPre=/usr/bin/nginx -t
+ExecStartPre=/usr/bin/sleep 5
+ExecStartPre=/usr/bin/host -R 5 r3.o.lencr.org
 ExecStart=/usr/bin/nginx -g 'error_log stderr alert;'
 ExecReload=/usr/bin/kill -s HUP $MAINPID
 ExecStop=/usr/bin/kill -s QUIT $MAINPID
