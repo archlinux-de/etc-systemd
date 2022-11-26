@@ -17,6 +17,19 @@ ProtectControlGroups=true
 RestrictAddressFamilies=AF_INET AF_INET6 AF_NETLINK AF_UNIX
 RestrictNamespaces=true
 
+LockPersonality=true
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+CapabilityBoundingSet=
+ProtectClock=true
+RemoveIPC=true
+ProtectKernelLogs=true
+SystemCallArchitectures=native
+RestrictSUIDSGID=true
+ProtectHostname=true
+RestrictRealtime=true
+ProtectProc=invisible
+
 ProtectHome=true
 ProtectSystem=full
 InaccessibleDirectories=/var/lib/mysql
