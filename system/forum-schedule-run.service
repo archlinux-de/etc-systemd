@@ -1,16 +1,6 @@
 [Service]
 Type=oneshot
 
-InaccessibleDirectories=/var/lib/mysql
-NoNewPrivileges=true
-PrivateDevices=true
-PrivateTmp=true
-ProtectControlGroups=true
-ProtectHome=true
-ProtectKernelModules=true
-ProtectKernelTunables=true
-ProtectSystem=full
-
 User=php-forum
 Group=php-forum
 
