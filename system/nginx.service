@@ -9,6 +9,7 @@ PrivateDevices=yes
 SyslogLevel=err
 PrivateTmp=true
 IPAddressDeny=any
+IPAddressAllow=localhost
 IPAddressAllow=184.24.0.0/13
 IPAddressAllow=2a02:26f0::/29
 IPAddressAllow=8.8.8.8
