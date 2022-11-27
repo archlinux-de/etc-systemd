@@ -1,16 +1,15 @@
 [Service]
 Type=oneshot
 
-PrivateTmp=true
+InaccessibleDirectories=/var/lib/mysql
 NoNewPrivileges=true
 PrivateDevices=true
-ProtectKernelTunables=true
-ProtectKernelModules=true
+PrivateTmp=true
 ProtectControlGroups=true
-
 ProtectHome=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
 ProtectSystem=full
-InaccessibleDirectories=/var/lib/mysql
 
 User=php-wiki
 Group=php-wiki

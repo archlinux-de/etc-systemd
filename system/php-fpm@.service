@@ -7,32 +7,30 @@ Requires=php-fpm@.socket
 [Service]
 Type=notify
 
-PrivateTmp=true
+CapabilityBoundingSet=
+InaccessibleDirectories=/var/lib/mysql
+LockPersonality=true
 NoNewPrivileges=true
-PrivateNetwork=true
 PrivateDevices=true
-ProtectKernelTunables=true
-ProtectKernelModules=true
+PrivateNetwork=true
+PrivateTmp=true
+ProtectClock=true
 ProtectControlGroups=true
+ProtectHome=true
+ProtectHostname=true
+ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectProc=invisible
+ProtectSystem=full
+RemoveIPC=true
 RestrictAddressFamilies=AF_INET AF_INET6 AF_NETLINK AF_UNIX
 RestrictNamespaces=true
-
-LockPersonality=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+SystemCallArchitectures=native
 SystemCallFilter=@system-service
 SystemCallFilter=~@privileged @resources
-CapabilityBoundingSet=
-ProtectClock=true
-RemoveIPC=true
-ProtectKernelLogs=true
-SystemCallArchitectures=native
-RestrictSUIDSGID=true
-ProtectHostname=true
-RestrictRealtime=true
-ProtectProc=invisible
-
-ProtectHome=true
-ProtectSystem=full
-InaccessibleDirectories=/var/lib/mysql
 
 User=php-%i
 Group=php-%i
