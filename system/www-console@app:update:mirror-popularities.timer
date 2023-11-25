@@ -1,0 +1,7 @@
+[Timer]
+OnCalendar=monthly
+Persistent=true
+RandomizedDelaySec=15min
+
+[Install]
+WantedBy=timers.target
