@@ -5,7 +5,7 @@ User=php-pierre
 Group=php-pierre
 
 WorkingDirectory=/srv/http/vhosts/pierre-schmitz.com
-ExecStart=/srv/http/vhosts/pierre-schmitz.com/wp-cli cron event run --due-now --quiet
+ExecStart=wp cron event run --due-now --quiet
 
 [Install]
 WantedBy=multi-user.target
