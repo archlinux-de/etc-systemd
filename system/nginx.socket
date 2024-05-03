@@ -1,8 +1,11 @@
 [Socket]
 ListenStream=0.0.0.0:80
 ListenStream=0.0.0.0:443
+ListenDatagram=0.0.0.0:443
 ListenStream=[::]:80
 ListenStream=[::]:443
+ListenDatagram=[::]:443
+ReusePort=true
 BindIPv6Only=ipv6-only
 KeepAlive=true
 
