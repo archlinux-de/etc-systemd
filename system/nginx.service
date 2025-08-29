@@ -1,19 +1,12 @@
 [Unit]
 Description=A high performance web server and a reverse proxy server
-After=network-online.target mariadb.service
+After=network-online.target mariadb.service opensearch.service
 Wants=network-online.target
 Requires=nginx.socket
 
 [Service]
 CapabilityBoundingSet=
 InaccessibleDirectories=/var/lib/mysql
-IPAddressAllow=184.24.0.0/13
-IPAddressAllow=2001:4860:4860::8844
-IPAddressAllow=2001:4860:4860::8888
-IPAddressAllow=2a02:26f0::/29
-IPAddressAllow=8.8.4.4
-IPAddressAllow=8.8.8.8
-IPAddressAllow=localhost
 IPAddressDeny=any
 LockPersonality=true
 NoNewPrivileges=true
@@ -43,8 +36,6 @@ Group=http
 
 RuntimeDirectory=nginx
 Environment=NGINX=3:4:5:6:7:8;
-ExecStartPre=/usr/bin/sleep 5
-ExecStartPre=/usr/bin/host -R 5 r3.o.lencr.org
 PIDFile=/run/nginx/nginx.pid
 ExecStart=/usr/bin/nginx -g 'pid /run/nginx/nginx.pid;error_log stderr alert;'
 ExecReload=/usr/bin/kill -s HUP $MAINPID
