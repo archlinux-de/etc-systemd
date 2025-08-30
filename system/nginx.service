@@ -7,6 +7,7 @@ Requires=nginx.socket
 [Service]
 CapabilityBoundingSet=
 InaccessibleDirectories=/var/lib/mysql
+IPAddressAllow=localhost
 IPAddressDeny=any
 LockPersonality=true
 NoNewPrivileges=true
